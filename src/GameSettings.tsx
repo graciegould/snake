@@ -48,6 +48,7 @@ function GameSettings({
                       rows: parseInt(e.target.value),
                     }))
                   }
+                  disabled={gameData.started}
                 />
               </div>
             </div>
@@ -65,6 +66,7 @@ function GameSettings({
                       cols: parseInt(e.target.value),
                     }))
                   }
+                  disabled={gameData.started}
                 />
               </div>
             </div>
@@ -85,6 +87,7 @@ function GameSettings({
                       speed: parseInt(e.target.value),
                     }))
                   }
+                  disabled={gameData.started}
                 />
               </div>
             </div>
