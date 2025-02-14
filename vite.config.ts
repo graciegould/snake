@@ -1,12 +1,12 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
 
 const config = defineConfig({
   server: {
     port: 3000,
     hmr: {
-      overlay: true, 
+      overlay: true,
     },
-  }
+  },
 });
 
 export default config;

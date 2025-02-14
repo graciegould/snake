@@ -3,8 +3,16 @@ import { useState, useEffect } from "react";
 import Cell from "./Cell";
 import { getRandomRowAndColumn, map } from "./utils";
 
-function Grid({ gameData, setGameData }: { gameData: GameData; setGameData: React.Dispatch<React.SetStateAction<GameData>> }) {
-  const [grid, setGrid] = useState<{ row: number; col: number; target: boolean }[][]>(() => generateGrid(gameData.rows, gameData.cols));
+function Grid({
+  gameData,
+  setGameData,
+}: {
+  gameData: GameData;
+  setGameData: React.Dispatch<React.SetStateAction<GameData>>;
+}) {
+  const [grid, setGrid] = useState<
+    { row: number; col: number; target: boolean }[][]
+  >(() => generateGrid(gameData.rows, gameData.cols));
   function generateGrid(rows: number, cols: number) {
     return Array.from({ length: rows }, (_, row) => {
       return Array.from({ length: cols }, (_, col) => ({
@@ -21,29 +29,29 @@ function Grid({ gameData, setGameData }: { gameData: GameData; setGameData: Reac
     const handleArrowKeys = (e: KeyboardEvent) => {
       let dir = gameData.direction;
       switch (e.key) {
-        case 'ArrowUp':
-        case 'w':
-          dir = 'LEFT';
+        case "ArrowUp":
+        case "w":
+          dir = "LEFT";
           break;
-        case 'ArrowRight':
-        case 'd':
-          dir = 'DOWN';
+        case "ArrowRight":
+        case "d":
+          dir = "DOWN";
           break;
-        case 'ArrowDown':
-        case 's':
-          dir = 'RIGHT';
+        case "ArrowDown":
+        case "s":
+          dir = "RIGHT";
           break;
-        case 'ArrowLeft':
-        case 'a':
-          dir = 'UP';
+        case "ArrowLeft":
+        case "a":
+          dir = "UP";
           break;
         default:
           break;
       }
       setGameData((prev) => ({ ...prev, direction: dir }));
     };
-    document.addEventListener('keydown', handleArrowKeys);
-    return () => document.removeEventListener('keydown', handleArrowKeys);
+    document.addEventListener("keydown", handleArrowKeys);
+    return () => document.removeEventListener("keydown", handleArrowKeys);
   }, []);
 
   useEffect(() => {
@@ -97,7 +105,9 @@ function Grid({ gameData, setGameData }: { gameData: GameData; setGameData: Reac
 
         if (wallCollision() || selfCollision()) {
           clearInterval(interval);
-          let newSnake = [getRandomRowAndColumn([], gameData.rows, gameData.cols)];
+          let newSnake = [
+            getRandomRowAndColumn([], gameData.rows, gameData.cols),
+          ];
           if (score > highScore) {
             highScore = score;
             localStorage.setItem(LOCAL_STORAGE_KEY, highScore.toString());
@@ -105,7 +115,11 @@ function Grid({ gameData, setGameData }: { gameData: GameData; setGameData: Reac
           return {
             ...gameData,
             snake: [getRandomRowAndColumn([], gameData.rows, gameData.cols)],
-            target: getRandomRowAndColumn(newSnake, gameData.rows, gameData.cols),
+            target: getRandomRowAndColumn(
+              newSnake,
+              gameData.rows,
+              gameData.cols,
+            ),
             score: 0,
             started: false,
             highScore: highScore,
@@ -114,7 +128,11 @@ function Grid({ gameData, setGameData }: { gameData: GameData; setGameData: Reac
         if (targetCollision()) {
           score = score + 1;
           newSnake.unshift({ ...target });
-          target = getRandomRowAndColumn(newSnake, gameData.rows, gameData.cols);
+          target = getRandomRowAndColumn(
+            newSnake,
+            gameData.rows,
+            gameData.cols,
+          );
         }
         newSnake.push(newHead);
         newSnake.shift();
@@ -138,12 +156,16 @@ function Grid({ gameData, setGameData }: { gameData: GameData; setGameData: Reac
 
   return (
     <div className="game-grid-container">
-      <div className='game-grid'>
+      <div className="game-grid">
         {grid.map((row, rowIndex) => (
-          <div key={rowIndex} className='game-row' style={{
-            height: `${100 / gameData.rows}%`,
-          }}>
-            {row.map((cell, cellIndex) =>
+          <div
+            key={rowIndex}
+            className="game-row"
+            style={{
+              height: `${100 / gameData.rows}%`,
+            }}
+          >
+            {row.map((cell, cellIndex) => (
               <Cell
                 key={cellIndex}
                 cell={cell}
@@ -151,13 +173,13 @@ function Grid({ gameData, setGameData }: { gameData: GameData; setGameData: Reac
                 snake={gameData.snake}
                 rows={gameData.rows}
                 cols={gameData.cols}
-              />)}
+              />
+            ))}
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
-
 
 export default Grid;

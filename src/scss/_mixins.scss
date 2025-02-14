@@ -1,34 +1,32 @@
-
 @mixin fill {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 @mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin flex-start {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-
 @mixin small-screen {
-    @media (max-width: 812px) {
-        @content;
-    }
+  @media (max-width: 812px) {
+    @content;
+  }
 }
 
 @mixin dark {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 @mixin light {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }

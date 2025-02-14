@@ -1,105 +1,102 @@
-@use './mixins' as *;
+@use "./mixins" as *;
 
 .game-settings-area {
-    @include fill;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 10% 40% 50%;
-    grid-template-areas:
-        "start-game-container"
-        "difficulty-settings-container"
-        "snake-skin-settings-container";
+  @include fill;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 40% 50%;
+  grid-template-areas:
+    "start-game-container"
+    "difficulty-settings-container"
+    "snake-skin-settings-container";
 
-    @include small-screen {
-        grid-template-columns: 40% 60%;
-        grid-template-rows: 30% 70%;
-        grid-template-areas:
-            "start-game-container snake-skin-settings-container"
-            "difficulty-settings-container snake-skin-settings-container";
-    }
+  @include small-screen {
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 30% 70%;
+    grid-template-areas:
+      "start-game-container snake-skin-settings-container"
+      "difficulty-settings-container snake-skin-settings-container";
+  }
 }
 
-
-
 .start-game-container {
-    grid-area: start-game-container;
-    padding: 3%;
-    @include flex-center;
-    button {
-        @include fill;
-        box-shadow: 0 4px #666, 0 4px 10px rgba(161, 159, 159, 0.2);
-        transition: all 0.2s ease;
-        &:hover {
-            @include light;
-            cursor: pointer;
-        }
-        &:active {
-            background-color: #666;
-            transform: translateY(2px);
-        }
+  grid-area: start-game-container;
+  padding: 3%;
+  @include flex-center;
+  button {
+    @include fill;
+    box-shadow:
+      0 4px #666,
+      0 4px 10px rgba(161, 159, 159, 0.2);
+    transition: all 0.2s ease;
+    &:hover {
+      @include light;
+      cursor: pointer;
     }
+    &:active {
+      background-color: #666;
+      transform: translateY(2px);
+    }
+  }
 }
 
 .difficulty-settings-container {
-    grid-area: difficulty-settings-container;
-    display: flex;
-    flex-direction: column;
-    label {
-        @include flex-center;
-        width: 100%;
-        height: 50%;
-    }
+  grid-area: difficulty-settings-container;
+  display: flex;
+  flex-direction: column;
+  label {
+    @include flex-center;
+    width: 100%;
+    height: 50%;
+  }
 }
 
 .grid-size-settings {
-    @include fill;
-    width: 100%;
-    height: 50%;
-    display: flex;
+  @include fill;
+  width: 100%;
+  height: 50%;
+  display: flex;
 }
 
 .grid-size-setting {
-    padding: 3%;
-    @include fill;
+  padding: 3%;
+  @include fill;
 }
 
 .settings-input-container {
-    @include fill;
-    border: 1px solid white;
+  @include fill;
+  border: 1px solid white;
 }
 
 .speed-settings {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    padding: 3%;
-
+  width: 100%;
+  height: 50%;
+  display: flex;
+  padding: 3%;
 }
 
 .speed-setting {
-    display: flex;
-    flex-direction: column;
-    @include fill;
+  display: flex;
+  flex-direction: column;
+  @include fill;
 }
 
 input[type="number"] {
-    @include fill;
-    height: 50%;
-    @include dark;
-    text-align: center;
-    // -moz-appearance: textfield;
+  @include fill;
+  height: 50%;
+  @include dark;
+  text-align: center;
+  // -moz-appearance: textfield;
 
-    // &::-webkit-outer-spin-button,
-    // &::-webkit-inner-spin-button {
-    //     -webkit-appearance: none;
-    //     margin: 0;
-    // }
+  // &::-webkit-outer-spin-button,
+  // &::-webkit-inner-spin-button {
+  //     -webkit-appearance: none;
+  //     margin: 0;
+  // }
 }
 
-
-
 .snake-skin-settings-container {
-    grid-area: snake-skin-settings-container;
-    @include dark;
+  grid-area: snake-skin-settings-container;
+  @include dark;
 }

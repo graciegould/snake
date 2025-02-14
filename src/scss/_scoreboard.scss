@@ -1,43 +1,43 @@
-@use './mixins' as *;
+@use "./mixins" as *;
 
 .score-board-area {
-    @include fill;
-    @include flex-center;
-    flex-direction: column;
+  @include fill;
+  @include flex-center;
+  flex-direction: column;
 }
 
 .score-item {
-    @include fill;
-    display: flex;
-    padding: 3%;
+  @include fill;
+  display: flex;
+  padding: 3%;
 }
 
 .score-label {
-    @include fill;
-    @include flex-start;
-    padding-left: 2%;
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    @include small-screen {
-        @include flex-center;
-        height: 60%;
-    }
+  @include fill;
+  @include flex-start;
+  padding-left: 2%;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  @include small-screen {
+    @include flex-center;
+    height: 60%;
+  }
 }
 
 .score-value {
-    @include fill;
-    @include flex-start;
-    font-size: clamp(1.5rem, 2vw, 2rem);
-    @include small-screen {
-        @include flex-center;
-    }
+  @include fill;
+  @include flex-start;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  @include small-screen {
+    @include flex-center;
+  }
 }
 
 .score {
-    @include fill;
-    @include flex-center;
-    border: 1px solid white;
-    padding: 3%;
-    @include small-screen {
-        flex-direction: column;
-    }
+  @include fill;
+  @include flex-center;
+  border: 1px solid white;
+  padding: 3%;
+  @include small-screen {
+    flex-direction: column;
+  }
 }
