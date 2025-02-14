@@ -15,7 +15,6 @@ export interface CellProps {
   target: { row: number; col: number };
   snake: { row: number; col: number }[];
   cols: number;
-  rows: number;
 }
 export const DEFAULT_GRID_ROW_AMOUNT: number = 20;
 export const DEFAULT_GRID_COL_AMOUNT: number = 20;

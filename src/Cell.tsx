@@ -84,7 +84,7 @@ const snakeSkin = [
   "#E48000",
 ];
 
-function Cell({ cell, target, snake, rows, cols }: CellProps) {
+function Cell({ cell, target, snake, cols }: CellProps) {
   const [fruit, setFruit] = useState<string | null>(null);
   const [skinColor, setSkinColor] = useState<string | null>(null);
 
@@ -135,7 +135,7 @@ function Cell({ cell, target, snake, rows, cols }: CellProps) {
       }}
     >
       <div
-        className={`game-cell-bg ${cellType() === "target" ? "animated-cell" : ""}`}
+        className={`game-cell-bg ${cellType() === "target" ? "target-cell" : ""}`}
         style={{
           backgroundColor: cellType() === "ground" ? "white" : "transparent",
           border: cellType() === "target" ? "none" : "1px solid white",
