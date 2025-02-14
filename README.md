@@ -2,7 +2,7 @@
 Just a classic snake game with customizable difficulty.
 
 ## Demo
-![Demo Image](./demo/demo.gif)
+![Demo Image](./demo/demo.png)
 
 ## Installation Steps
 
