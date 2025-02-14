@@ -1,0 +1,54 @@
+@use './mixins' as *;
+
+.game-grid-container {
+    @include fill;
+    display: flex;
+    justify-content: center;
+}
+
+.game-grid {
+    transition: all 500ms ease 0ms;
+    aspect-ratio: 1 / 1;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 2%;
+}
+
+.game-row {
+    display: flex;
+    width: 100%;
+    height: calc(100% / 20);
+}
+
+.game-cell {
+    display: flex;
+    width: calc(100% / 20);
+    height: 100%;
+    padding: 3px;
+
+}
+
+.game-cell-bg {
+    @include fill;
+    background-color: black;
+    border: 1px solid white;
+}
+
+.game-cell-snake {
+    @include fill;
+}
+
+.game-cell-fruit-img {
+    @include fill;
+    object-fit: cover;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
