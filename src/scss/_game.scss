@@ -2,6 +2,7 @@
 
 .game-grid-container {
     @include fill;
+    // @include flex-center;
     display: flex;
     justify-content: center;
 }
@@ -21,11 +22,27 @@
 }
 
 .game-cell {
+    background-color: transparent;
     display: flex;
     width: calc(100% / 20);
     height: 100%;
     padding: 3px;
+}
 
+
+@keyframes scale-up-down {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+.target-cell {
+    background-color: transparent;
+    animation: scale-up-down 1s ease-in-out infinite;
+    border:none;
 }
 
 .game-cell-bg {

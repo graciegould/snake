@@ -133,12 +133,15 @@ function Cell({ cell, target, snake, rows, cols }: CellProps) {
         width: `${100 / cols}%`,
       }}
     >
-      <div className="game-cell-bg">
+      <div className={`game-cell-bg ${cellType() === 'target' ? 'animated-cell' : ''}`} style={{
+        backgroundColor: cellType() === 'ground' ? 'white' : 'transparent',
+        border: cellType() === 'target' ? 'none' : '1px solid white',
+        }}>
         {fruit ? (
-          <img src={`./fruit-icons/${fruit}.png`} alt={fruit} className='game-cell-fruit-img' />
+          <img src={`./fruit-icons/${fruit}.png`} alt={fruit} className='game-cell-fruit-img target-cell' />
         ) : (
           <div className='game-cell-snake' style={{
-            backgroundColor: skinColor ? skinColor : 'black',
+          backgroundColor: skinColor ? skinColor : 'black',
           }}>
           </div>
         )}

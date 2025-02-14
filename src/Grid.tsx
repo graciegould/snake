@@ -1,4 +1,4 @@
-import { GameData, DEFAULT_GRID_COL_AMOUNT, DEFAULT_GRID_ROW_AMOUNT, LOCAL_STORAGE_KEY } from "./types/types";
+import { GameData, LOCAL_STORAGE_KEY } from "./types/types";
 import { useState, useEffect } from "react";
 import Cell from "./Cell";
 import { getRandomRowAndColumn, map } from "./utils";
@@ -71,9 +71,9 @@ function Grid({ gameData, setGameData }: { gameData: GameData; setGameData: Reac
         function wallCollision() {
           if (
             head.row < 0 ||
-            head.row >= DEFAULT_GRID_ROW_AMOUNT ||
+            head.row >= gameData.rows ||
             head.col < 0 ||
-            head.col >= DEFAULT_GRID_COL_AMOUNT
+            head.col >= gameData.cols
           ) {
             return true;
           }
