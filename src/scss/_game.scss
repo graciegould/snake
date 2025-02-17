@@ -2,7 +2,6 @@
 
 .game-grid-container {
   @include fill;
-  // @include flex-center;
   display: flex;
   justify-content: center;
 }
@@ -50,6 +49,22 @@
   background-color: black;
   border: 1px solid white;
 }
+
+.game-cell-fail {
+    border: 1px solid white;
+    animation: blink-border 4s ease-in-out 1;
+}
+
+@keyframes blink-border {
+    0%, 100% {
+        border-color: white;
+    }
+    50% {
+        border-color: red;
+    }
+}
+
+
 
 .game-cell-snake {
   @include fill;
